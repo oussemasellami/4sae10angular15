@@ -1,0 +1,63 @@
+<!--<p>bonjour 4sae 10</p>
+
+{{ variable }}
+<hr>
+<button [disabled]="v2" >save</button>
+<hr>
+<br>
+<button (click)="show()"  >show</button>
+
+{{message}}
+<hr>
+<input [(ngModel)]="prop">
+{{prop}}-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLinkActivate="active" routerLink="/home"
+          >Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActivate="active" routerLink="/card"
+          >Residence</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLinkActivateOptions="{exact:true}"
+          routerLink="/annance"
+          tabindex="-1"
+          aria-disabled="true"
+          >Annance</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLinkActivateOptions="{exact:true}"
+          routerLink="/annance/list"
+          tabindex="-1"
+          aria-disabled="true"
+          >Annancelist</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
