@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,6 +8,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./form-appartment.component.css']
 })
 export class FormAppartmentComponent implements OnInit {
+  
+  @Input() x:string="bonjour"
   appartform!:FormGroup
 id=0
 constructor(private acr:ActivatedRoute){}
@@ -21,11 +23,13 @@ constructor(private acr:ActivatedRoute){}
       terrasse:new FormControl('',Validators.required),
       surfaceTerrasse:new FormControl('',Validators.required),
       category:new FormControl('',Validators.required),
-      description:new FormControl('',Validators.required),
+      description:new FormControl('',[Validators.required,Validators.minLength(10)]),
       residence:new FormControl(this.id,Validators.required),
 
     }) }
-get numappat(){return this.appartform.get('numAppart')}
+
+get numappart(){return this.appartform.get('numAppart')}
+get description(){return this.appartform.get('description')}
     add(){
       console.log("notre form"+JSON.stringify(this.appartform.value))
     }

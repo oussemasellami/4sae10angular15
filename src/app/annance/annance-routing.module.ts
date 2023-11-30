@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { AnnanceComponent } from './annance.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ListAnnanceComponent } from './list-annance/list-annance.component';
+
+
 const ROUTES:Routes=[
-{path:'annance',component:AnnanceComponent,
+{path:"annance",component:AnnanceComponent,
 children:[
 {path:'list',component:ListAnnanceComponent}
-],
+]
 }
 ]
 @NgModule({

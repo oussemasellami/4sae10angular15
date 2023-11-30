@@ -16,6 +16,10 @@ import { ListAnnanceComponent } from './annance/list-annance/list-annance.compon
 import { AnnanceRoutingModule } from './annance/annance-routing.module';
 import { AnnanceModule } from './annance/annance.module';
 import { FormAppartmentComponent } from './form-appartment/form-appartment.component';
+import { ErrorsComponent } from './shared/errors/errors.component';
+import { ListAppartmentComponent } from './list-appartment/list-appartment.component';
+import { AppartmentComponent } from './appartment/appartment.component';
+import { AddAppartmentComponent } from './add-appartment/add-appartment.component';
 
 
 @NgModule({
@@ -28,6 +32,10 @@ import { FormAppartmentComponent } from './form-appartment/form-appartment.compo
     PageNotFoundComponent,
     ShowappartmentComponent,
     FormAppartmentComponent,
+    ErrorsComponent,
+    ListAppartmentComponent,
+    AppartmentComponent,
+    AddAppartmentComponent,
     
   ],
   imports: [

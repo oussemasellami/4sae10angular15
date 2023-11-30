@@ -7,7 +7,9 @@
               <span class="input-group-text">Num Appart</span>
             </div>
             <input type="text" aria-label="Num Appart" name="numAppart" id="numAppart" class="form-control" formControlName="numAppart">
-           
+           <div *ngIf="numappart!.touched && numappart!.invalid" class="alert alert-danger">
+            num Etage is required
+           </div>
           </div>
           <br>
           <div class="input-group">
@@ -55,7 +57,12 @@
               <span class="input-group-text">description</span>
             </div>
             <input type="text" aria-label="description" class="form-control" formControlName="description">
-          
+            <div *ngIf="description!.touched && description!.invalid" class="alert alert-danger">
+              description is required
+              <div *ngIf="description?.errors?.['minlength']">
+                min length 10
+              </div>
+             </div>
           </div>
           <br>
           <div class="input-group">

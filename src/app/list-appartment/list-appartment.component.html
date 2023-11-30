@@ -1,0 +1,7 @@
+
+<button class="btn btn-primary" (click)="displayform()">add new appartmet</button>
+<app-add-appartment *ngIf="aff" (addform)="addappart($event)"></app-add-appartment>
+<div class="row">
+<app-appartment class="col-4" *ngFor="let r of appartementsList"
+[app]="r"
+(delete)="deleteappart($event)"></app-appartment></div>

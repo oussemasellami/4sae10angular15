@@ -1,0 +1,21 @@
+
+<div
+      class="card"
+      style="width: 18rem"
+    >
+      <img [src]="app.residence.image" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ app.residence.name }}</h5>
+        <p class="card-text">
+          {{ app.residence.address }}
+        </p>
+
+        <h5 class="card-title">Num Appart</h5>
+        <p class="card-text">
+          {{ app.numAppart }}
+        </p>
+       
+        <button class="btn btn-primary">Update</button>
+        <button (click)="deleteapp()" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
