@@ -24,8 +24,12 @@ export class AppartmentComponent {
   }
 
   @Output() delete=new EventEmitter<Appartement>
-
+@Output() update=new EventEmitter<Appartement>
   deleteapp(){
 this.delete.emit(this.app)
   }
+  updateapp()
+{
+this.update.emit(this.app)
+}
 }

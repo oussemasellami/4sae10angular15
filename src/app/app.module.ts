@@ -20,7 +20,8 @@ import { ErrorsComponent } from './shared/errors/errors.component';
 import { ListAppartmentComponent } from './list-appartment/list-appartment.component';
 import { AppartmentComponent } from './appartment/appartment.component';
 import { AddAppartmentComponent } from './add-appartment/add-appartment.component';
-
+import { UpdateComponent } from './update/update.component';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AddAppartmentComponent } from './add-appartment/add-appartment.componen
     ListAppartmentComponent,
     AppartmentComponent,
     AddAppartmentComponent,
+    UpdateComponent,
     
   ],
   imports: [
@@ -43,7 +45,8 @@ import { AddAppartmentComponent } from './add-appartment/add-appartment.componen
     FormsModule, 
     AppRoutingModule, 
      AnnanceModule,
-     ReactiveFormsModule
+     ReactiveFormsModule,
+     HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

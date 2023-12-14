@@ -1,16 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Appartement } from '../models/appartement';
 import { Residence } from '../models/residence';
+import { AppartmentService } from '../services/appartment.service';
 
 @Component({
   selector: 'app-list-appartment',
   templateUrl: './list-appartment.component.html',
   styleUrls: ['./list-appartment.component.css']
 })
-export class ListAppartmentComponent {
+export class ListAppartmentComponent implements OnInit {
 
   imageUrl="/assets/images/"
 //surfacesearch!:number
+appar!:null
+sum!:number
+listappart:Appartement[]=[]
 aff:boolean=false
   residencesList: Residence[]=[
     {id: 1, name: "Residence 1", address: "Address 1", image: this.imageUrl+"residence1.jpg"},
@@ -28,14 +32,29 @@ aff:boolean=false
     {id: 6, terrasse: "Terrasse 6", numAppart: 16, numEtage: 8, surface: 420, surfaceTerrasse: 260, category: "category 6", description: "appartement desc 6", status: true ,residence: this.residencesList[2]},
 
   ]
+  constructor(private appservice:AppartmentService){
+
+  }
+
+  ngOnInit(): void {
+    this.appservice.getappartment().subscribe((data:Appartement[])=>{
+this.listappart=data
+console.log("mylist:"+JSON.stringify(this.listappart))
+    })
+  }
 
   displayform(){
     this.aff=!this.aff
   }
 
+  updateappart(appart:any){
+    this.appar=appart
+  }
   update(appart:any){
+    //this.appar=appart
 let i=this.appartementsList.findIndex(a=>a.id==appart.id)
 this.appartementsList[i]=appart
+this.appar=null
   }
 
   
@@ -44,6 +63,9 @@ this.appartementsList=this.appartementsList.filter(app=>app!==appart)
 }
   addappart(appart:Appartement){
     this.appartementsList.push(appart)
+  }
+  displaysumcreteria(){
+    this.sum=this.appservice.getSommeValueOf(this.appartementsList,"numAppart",21)
   }
 
 }

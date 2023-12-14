@@ -2,6 +2,16 @@
 <button class="btn btn-primary" (click)="displayform()">add new appartmet</button>
 <app-add-appartment *ngIf="aff" (addform)="addappart($event)"></app-add-appartment>
 <div class="row">
-<app-appartment class="col-4" *ngFor="let r of appartementsList"
+<app-appartment class="col-4" *ngFor="let r of listappart"
 [app]="r"
-(delete)="deleteappart($event)"></app-appartment></div>
+(delete)="deleteappart($event)"
+(update)="updateappart($event)"
+></app-appartment></div>
+
+<app-update
+*ngIf="appar"
+(updateform)="update($event)"
+[app]="appar"
+></app-update>
+<button class="btn btn-primary" (click)="displaysumcreteria()">Go to sum num appart</button>
+<div *ngIf="sum" class="alert alert-danger"> the sum is : {{sum}}</div>
