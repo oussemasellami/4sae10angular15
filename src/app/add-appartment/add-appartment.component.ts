@@ -14,7 +14,7 @@ export class AddAppartmentComponent implements OnInit {
   appartform!:FormGroup
   res:Residence={id:1,name:"",address:"",image:this.imageUrl+"residence1.jpg"}
   app:Appartement={
-    id:1,
+    id:3,
     numAppart:0,
     numEtage:0,
     surface:0,

@@ -52,17 +52,30 @@ console.log("mylist:"+JSON.stringify(this.listappart))
   }
   update(appart:any){
     //this.appar=appart
-let i=this.appartementsList.findIndex(a=>a.id==appart.id)
-this.appartementsList[i]=appart
+    this.appservice.upadateappartment(appart.id,appart).subscribe(()=>{
+      console.log("updated")
+      window.location.reload()
+    })
+//let i=this.appartementsList.findIndex(a=>a.id==appart.id)
+//this.appartementsList[i]=appart
 this.appar=null
   }
 
   
 deleteappart(appart:any){
-this.appartementsList=this.appartementsList.filter(app=>app!==appart)
+  this.appservice.deleteappartment(appart.id).subscribe(()=>{
+    console.log("deleted")
+    window.location.reload()
+
+  })
+//this.appartementsList=this.appartementsList.filter(app=>app!==appart)
 }
   addappart(appart:Appartement){
-    this.appartementsList.push(appart)
+    this.appservice.addappartment(appart).subscribe(()=>{
+      console.log("appart added")
+      window.location.reload()
+    })
+    //this.appartementsList.push(appart)
   }
   displaysumcreteria(){
     this.sum=this.appservice.getSommeValueOf(this.appartementsList,"numAppart",21)

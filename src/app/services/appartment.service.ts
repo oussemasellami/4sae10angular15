@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppartmentService {
   apartmentUrl ='http://localhost:3000/appartement'
+  apartmentUrls='/api/appartement'
   constructor(private http:HttpClient) { }
 
   getSommeValueOf(list:any[], critiria:string, value:any){
@@ -23,4 +24,14 @@ return n
   getappartment():Observable<Appartement[]>{
     return this.http.get<Appartement[]>(this.apartmentUrl)
   }
-}
+  addappartment(appartment:Appartement):Observable<Appartement[]>{
+    return this.http.post<Appartement[]>(this.apartmentUrls,appartment)
+  }
+  deleteappartment(id : number):Observable<Appartement[]>{
+    return this.http.delete<Appartement[]>(this.apartmentUrls+'/'+id)
+  }
+
+  upadateappartment(id:number,appartement:Appartement):Observable<Appartement[]>
+{
+  return this.http.put<Appartement[]>(this.apartmentUrls+'/'+id,appartement)
+}}
